@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="data:image/jpeg;base64,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" alt="">
+
+    <h1 style="color: blueviolet;"><sub>N</sub><sup>U</sup><sub>M</sub><sup>B</sup><sub>E</sub><sup>R</sup> guessing game</h1>
+
+    <p  style="color: indianred;" >We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. <br>  We'll tell you if your guess was too high or too low.
+        </p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="text" id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+        var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        var guesses = document.querySelector('.guesses');
+        var lastResult = document.querySelector('.lastResult');
+        var lowOrHi = document.querySelector('.lowOrHi');
+
+        var guessSubmit = document.querySelector('.guessSubmit');
+        var guessField = document.querySelector('.guessField');
+
+        var guessCount = 1;
+        var resetButton;
+        guessField.focus();
+
+        function checkGuess() {
+            var userGuess = Number(guessField.value);
+            if (guessCount === 1) {
+                guesses.textContent = 'Previous guesses: ';
+            }
+            guesses.textContent += userGuess + ' ';
+
+            if (userGuess === randomNumber) {
+                lastResult.textContent = 'Congratulations! You got it right!';
+                lastResult.style.backgroundColor = 'green';
+                lowOrHi.textContent = '';
+                setGameOver();
+            } else if (guessCount === 10) {
+                lastResult.textContent = '!!!GAME OVER!!!';
+                setGameOver();
+            } else {
+                lastResult.textContent = 'Wrong!';
+                lastResult.style.backgroundColor = 'red';
+                if(userGuess < randomNumber) {
+                lowOrHi.textContent = 'Last guess was too low!';
+                } else if(userGuess > randomNumber) {
+                lowOrHi.textContent = 'Last guess was too high!';
+                }
+            }
+
+            guessCount++;
+            guessField.value = '';
+            guessField.focus();
+        }
+        guessSubmit.addEventListener('click', checkGuess);
+
+        function setGameOver() {
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+            resetButton = document.createElement('button');
+            resetButton.textContent = 'Start new game';
+            document.body.appendChild(resetButton);
+            resetButton.addEventListener('click', resetGame);
+        }
+        function resetGame() {
+            guessCount = 1;
+
+            var resetParas = document.querySelectorAll('.resultParas p');
+            for (var i = 0 ; i < resetParas.length ; i++) {
+                resetParas[i].textContent = '';
+            }
+
+            resetButton.parentNode.removeChild(resetButton);
+
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = '';
+            guessField.focus();
+
+            lastResult.style.backgroundColor = 'blue';
+
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+        }
+        $(function cli() {
+            var e = $.Event('click');
+            e.which = 13; // Enter
+            $('Sumbit guess').trigger(e);
+        });
+
+
+    </script>
+  </body>
+</html>
