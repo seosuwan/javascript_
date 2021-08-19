@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Gaegu:wght@300&display=swap');
+        h1{
+            margin: auto;
+            text-align: center;
+            font-family: 'Amatic SC', 'Gaegu';
+        }
+        pre{
+            color: darkblue;
+            font-size: xx-small;
+            font-family: 'Source Code Pro';
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="h1">Christmas 만 추출하기</h1>
+        <pre>var list = document.querySelector('.output ul'); <br>
+            list.innerHTML = ''; <br>
+            var greetings = ['Happy Birthday!',<br>
+            'Merry Christmas my love',<br>
+            'A happy Christmas to all the family',<br>
+            'You\'re all I want for Christmas',<br>
+            'Get well soon'];<br>
+
+            for(var i = 0; i < greetings.length; i++) {<br>
+            var input = greetings[i];<br>
+            
+           <b><u> if(greetings[i].indexOf('Christmas') !== -1) </u></b> {<br>
+                var result = input;<br>
+                var listItem = document.createElement('li');<br>
+                listItem.textContent = result;<br>
+                list.appendChild(listItem);<br>
+                }<br>
+            }<br>
+                
+        </pre>
+</body>
+
+<script>
+    // 문제 예제
+//     var list = document.querySelector('.output ul');
+//     list.innerHTML = '';
+//     var greetings = ['Happy Birthday!',
+//                     'Merry Christmas my love',
+//                     'A happy Christmas to all the family',
+//                     'You\'re all I want for Christmas',
+//                     'Get well soon'];
+
+//     for (var i = 0; i < greetings.length; i++) {
+//     var input = greetings[i];
+   
+//     if (greetings[i]) {
+//         var result = input;
+//         var listItem = document.createElement('chr');
+//         listItem.textContent = result;
+//         list.appendChild(listItem);
+//   }
+// }
+
+</script>
+</html>
